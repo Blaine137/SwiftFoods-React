@@ -1,0 +1,21 @@
+.jumbotron{
+    background-color: #222A68 !important;
+    color: #E2AdF2;
+}
+
+.subscribeBtn{
+    background-color: #E2AdF2 !important;
+    color: #222A68 !important;
+    border: none !important;
+    transition: transform .5s ease-in-out;
+}
+
+.subscribeBtn:active, .subscribeBtn:focus, .subscribeBtn:hover{
+    background-color: rgba(226, 173, 242, .6) !important;
+    box-shadow: none !important;
+}
+
+.subscribeBtn:hover{
+    color: white !important;
+    transform: scale(1.1);
+}

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Navigation from './Navbar/Navbar';
+import './Header.scss';
 
 
 const header = (props) => {
@@ -9,7 +10,7 @@ const header = (props) => {
         <Fragment>
             <header className="jumbotron jumbotron-fluid mb-0">
                 <div className="container">
-                    <div class="row">
+                    <div className="row">
                         <div className="col-4 col-sm-3 col-md-2 align-self-center">
                             <a href="index.html"><img src="#" alt="" className="image-fluid img-thumbnail headerLogo scale-in-center"/></a>
                         </div>
