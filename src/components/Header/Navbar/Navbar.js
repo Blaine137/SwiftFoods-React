@@ -17,13 +17,13 @@ const Navigation = (props) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">SwiftFoods</NavbarBrand>
+      <Navbar dark expand="md" className="navbar">
+        <NavbarBrand href="#"><img src="assets/images/swiftfoodslogodcolor.png" alt="logo" height="30" width="30"/></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="#">Home</NavLink>
+              <NavLink href="index.html">Home</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="#">About us</NavLink>
