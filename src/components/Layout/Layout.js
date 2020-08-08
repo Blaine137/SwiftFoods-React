@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Header from '../Header/Header';
 import Home from '../Home/Home';
+import Footer from '../Footer/Footer';
 
 
 
@@ -21,6 +22,7 @@ class Layout extends Component{
             <Fragment>
                 <Header/>
                 <Home/>
+                <Footer/>
             </Fragment>
 
         );

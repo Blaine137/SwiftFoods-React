@@ -7,3 +7,28 @@ form{
     box-shadow: 2px 2px 6px 6px #AB81CD;
     border-radius: 2rem;
 }
+
+label{
+    color: white;
+}
+
+input{
+    transition: transform .5s ease-in-out;
+}
+
+input:focus{
+    transform: scale(1.1);
+}
+
+.submitBtn{
+  background-color: #E2ADF2 !important;
+  color: #222A68;
+/*   font-family: 'Montserrat', sans-serif; */
+  transition: transform .5s ease-in-out;
+}
+
+.submitBtn:hover{
+  background-color: rgba(226, 173, 242, .6) !important;
+  color: white !important;
+  transform: scale(1.1);
+}
