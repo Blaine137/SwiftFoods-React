@@ -5,9 +5,9 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink
+  NavItem
 } from 'reactstrap';
+import {NavLink} from 'react-router-dom';
 import './Navbar.scss';
 
 const Navigation = (props) => {
@@ -22,17 +22,17 @@ const Navigation = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="index.html">Home</NavLink>
+            <NavItem className="mr-3">
+              <NavLink exact to="/" activeClassName="active-link">Home</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="#">About us</NavLink>
+            <NavItem className="mr-3">
+              <NavLink to="/about" activeClassName="active-link">About us</NavLink>
             </NavItem>
-            <NavItem>
-                <NavLink href="#">Shop</NavLink>
+            <NavItem className="mr-3">
+                <NavLink to="/shop" activeClassName="active-link">Shop</NavLink>
             </NavItem>
-            <NavItem>
-                <NavLink href="#">Contact</NavLink>
+            <NavItem className="mr-3">
+                <NavLink to="/contact" activeClassName="active-link">Contact</NavLink>
             </NavItem>
 
           </Nav>

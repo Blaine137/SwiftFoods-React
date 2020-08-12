@@ -1,7 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import Header from '../Header/Header';
 import Home from '../Home/Home';
+import About from '../About/About';
+import Shop from '../Shop/Shop';
+import Contact from '../Contact/Contact';
 import Footer from '../Footer/Footer';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
 
 
@@ -21,7 +25,33 @@ class Layout extends Component{
 
             <Fragment>
                 <Header/>
-                <Home/>
+                
+            
+                
+                    <Switch>
+                    
+                        <Route exact path="/">
+                            <Home/>
+                        </Route>
+
+                        <Route path="/about">
+                            <About/>
+                        </Route>
+
+                        <Route path="/shop">
+                            <Shop/>
+                        </Route>
+
+                        <Route path="/contact">
+                            <Contact/>
+                        </Route>
+
+                        <Redirect to="/"/>
+                    
+                    </Switch>
+                
+              
+
                 <Footer/>
             </Fragment>
 

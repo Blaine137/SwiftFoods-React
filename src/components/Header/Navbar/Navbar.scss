@@ -1,3 +1,15 @@
 .navbar{
     background-color: #574AE2 !important;
 }
+
+.nav-item a{
+    color: rgba(255, 255, 255, .6);
+}
+
+.nav-item a:hover{
+    color: rgba(255, 255, 255, .6);
+}
+
+.active-link{
+    color: white !important;
+}
