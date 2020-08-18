@@ -11,6 +11,13 @@ const home = (props) => {
       <Fragment>
         <div className="container">
             <div className="row">
+                <div className="col-12">
+                    <h3 class="text-center mt-5 mb-5">How We Work!</h3>
+                </div>
+            </div>
+        </div>
+        <div className="container">
+            <div className="row">
                 <div className="col-12 col-md-6 mt-4">
                     <Card style={ {width: "18rem"} } className="mx-auto homeCard">
                         <CardImg top width="100%" src="/assets/images/chooseyourmeal.jpg" alt="Card image cap" className="card-img-top" style={ {height: "200px"} }/>

@@ -5,8 +5,9 @@ const Contact = (props) => {
 
     return(
 
-        <h2>Contact</h2>
-
+        <Fragment>
+            <h2>Contact</h2>
+        </Fragment>
     );
 
 };
