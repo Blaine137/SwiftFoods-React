@@ -34,7 +34,7 @@ class SubscribeForm extends Component {
 
     };
 
-    validate = (fName, lName, email, city, state, zipcode, months, cardType, cardNum, expireDate, securityCode) => {
+    validate = (fName, lName, email, city, state, zipcode, cardNum, expireDate, securityCode) => {
 
         const errors = {
             fName: '',
@@ -43,7 +43,6 @@ class SubscribeForm extends Component {
             city: '',
             state: '',
             zipcode: '',
-            months: '',
             cardType: '',
             cardNum: '',
             expireDate: '',
@@ -58,29 +57,69 @@ class SubscribeForm extends Component {
 
         }
 
-        if(lName.length < 2){
-            errors.lName = 'Last name must be longer than two characters.'
+        if(this.state.touched.lName){
+
+            if(lName.length < 2){
+                errors.lName = 'Last name must be longer than two characters.';
+            }
+
         }
 
-        if(!email.includes('@')){
-            errors.email = 'You must enter a valid email address.';
+        if(this.state.touched.email){
+
+            if(!email.includes('@')){
+                errors.email = 'You must enter a valid email address.';
+            }
+
         }
 
-        if(city.length < 2){
-            errors.city = 'City must be longer than two characters.';
+        if(this.state.touched.city){
+
+            if(city.length < 2){
+                errors.city = 'City must be longer than two characters.';
+            }
+
         }
 
-        if(state.length < 2){
-            errors.state = 'State must be longer than two characters.'
+        if(this.state.touched.state){
+
+            if(state.length < 2){
+                errors.state = 'State must be longer than two characters.';
+            }
+
         }
 
         const reg = /^\d+$/;
-        if(!reg.test(zipcode)){
-            errors.zipcode = 'Zipcode should only contain numbers.'
+        if(this.state.touched.zipcode){
+
+            if(!reg.test(zipcode)){
+                errors.zipcode = 'Zipcode should only contain numbers.';
+            }
+
         }
 
-        if(!reg.test(cardNum)){
-            errors.cardNum = 'Card number should only contain numbers.'
+        if(this.state.touched.cardNum){
+
+            if(!reg.test(cardNum)){
+                errors.cardNum = 'Card number should only contain numbers.';
+            }
+
+        }
+
+        if(this.state.touched.expireDate){
+
+            if(!reg.test(expireDate)){
+                errors.expireDate = 'Expire date should only contain four numbers';
+            }
+
+        }
+
+        if(this.state.touched.securityCode){
+
+            if(!reg.test(securityCode)){
+                errors.securityCode = 'Security code should only contain numbers.';
+            }
+
         }
 
         return errors;
@@ -112,7 +151,7 @@ class SubscribeForm extends Component {
 
     render(){
 
-            const errors = this.validate(this.state.fName, this.state.lName, this.state.email, this.state.city, this.state.state, this.state.zipcode, this.state.months, this.state.cardType, this.state.cardNum, this.state.expireDate, this.state.securityCode);
+            const errors = this.validate(this.state.fName, this.state.lName, this.state.email, this.state.city, this.state.state, this.state.zipcode, this.state.cardNum, this.state.expireDate, this.state.securityCode);
 
             return(
 
@@ -141,37 +180,94 @@ class SubscribeForm extends Component {
                                     </Col>
                                     <Label htmlFor="lName" className="col-form-label" lg={2}>Last Name*</Label>
                                     <Col  lg={4}>
-                                        <Input type="text" className="form-control" name="lname" id="lName" required placeholder="Enter Your Last Name"/>
+                                        <Input type="text" 
+                                               className="form-control" 
+                                               name="lname" id="lName" 
+                                               required 
+                                               placeholder="Enter Your Last Name"
+                                               invalid={errors.lName}
+                                               onChange={this.handleInputChange}
+                                               onBlur={this.handleBlur("lName")}/>
+                                        <FormFeedback>{errors.lName}</FormFeedback>
                                     </Col>
                                 </FormGroup>
                                 <FormGroup row className="mt-lg-5">
                                     <Label htmlFor="email" className="col-form-label" lg={2}>Email*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" className="form-control" name="email" id="email" required placeholder="Enter Your Email"/>
+                                        <Input type="text" 
+                                               className="form-control" 
+                                               name="email" 
+                                               id="email" 
+                                               required 
+                                               placeholder="Enter Your Email"
+                                               invalid={errors.email}
+                                               onChange={this.handleInputChange}
+                                               onBlur={this.handleBlur("email")}/>
+                                        <FormFeedback>{errors.email}</FormFeedback>
                                     </Col>
                                     <Label htmlFor="address" className="col-form-label" lg={2}>Address*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" className="form-control" name="address" id="address" required placeholder="Enter Your Address"/>
+                                        <Input type="text" 
+                                               className="form-control" 
+                                               name="address" 
+                                               id="address" 
+                                               required 
+                                               placeholder="Enter Your Address"
+                                               invalid={errors.address}
+                                               onChange={this.handleInputChange}
+                                               onBlur={this.handleBlur("address")}/>
+                                        <FormFeedback>{errors.address}</FormFeedback>
                                     </Col>
                                 </FormGroup>
                                 <FormGroup row className="mt-lg-5">
                                     <Label htmlFor="city" className="col-form-label" lg={2}>City*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" className="form-control" required name="city" id="city" placeholder="Enter Your City"/>
+                                        <Input type="text" 
+                                               className="form-control" 
+                                               required 
+                                               name="city" 
+                                               id="city" 
+                                               placeholder="Enter Your City"
+                                               invalid={errors.city}
+                                               onChange={this.handleInputChange}
+                                               onBlur={this.handleBlur("city")}/>
+                                        <FormFeedback>{errors.city}</FormFeedback>
                                     </Col>
                                     <Label htmlFor="state" className="col-form-label" lg={2}>State*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" className="form-control" required name="state" id="state" placeholder="Enter Your State"/>
+                                        <Input type="text" 
+                                               className="form-control" 
+                                               required 
+                                               name="state" 
+                                               id="state" 
+                                               placeholder="Enter Your State"
+                                               invalid={errors.state}
+                                               onChange={this.handleInputChange}
+                                               onBlur={this.handleBlur("state")}/>
+                                        <FormFeedback>{errors.state}</FormFeedback>
                                     </Col>
                                 </FormGroup>
                                 <FormGroup row className="mt-lg-5">
                                     <Label htmlFor="zipcode" className="col-form-label" lg={2}>Zipcode*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" className="form-control" required name="zipcode" id="zipcode" placeholder="Enter Your Zipcode"/>
+                                        <Input type="text" 
+                                               className="form-control" 
+                                               required 
+                                               name="zipcode" 
+                                               id="zipcode" 
+                                               placeholder="Enter Your Zipcode"
+                                               invalid={errors.zipcode}
+                                               onChange={this.handleInputChange}
+                                               onBlur={this.handleBlur("zipcode")}/>
+                                        <FormFeedback>{errors.zipcode}</FormFeedback>
                                     </Col>
                                     <Label htmlFor="months" className="col-form-label" lg={2}>Months*</Label>
                                     <Col lg={4}>
-                                        <Input name="months" name="months" id="months" type="select" required className="form-control">
+                                        <Input name="months" 
+                                               id="months" 
+                                               type="select" 
+                                               required 
+                                               className="form-control">
                                             <option value="0">Select...</option>
                                             <option value="1">3 months</option>
                                             <option value="2">6 months</option>
@@ -191,17 +287,44 @@ class SubscribeForm extends Component {
                                     </Col>
                                     <Label htmlFor="cardNum" className="col-form-label" lg={2}>Card Num*</Label>
                                     <Col lg={4}>
-                                        <Input type="password" className="form-control" name="cardNum" id="cardNum" required placeholder="Enter Your Card Number"/>
+                                        <Input type="password" 
+                                               className="form-control" 
+                                               name="cardNum" 
+                                               id="cardNum" 
+                                               required 
+                                               placeholder="Enter Your Card Number"
+                                               invalid={errors.cardNum}
+                                               onChange={this.handleInputChange}
+                                               onBlur={this.handleBlur("cardNum")}/>
+                                        <FormFeedback>{errors.cardNum}</FormFeedback>
                                     </Col>
                                 </FormGroup>
                                 <FormGroup row className="mt-lg-5">
                                     <Label htmlFor="expireDate" className="col-form-label" lg={2}>Card Expires*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" className="form-control" name="expireDate" id="expireDate" required placeholder="Enter Your Expire Date"/>
+                                        <Input type="text" 
+                                               className="form-control" 
+                                               name="expireDate" 
+                                               id="expireDate" 
+                                               required 
+                                               placeholder="Enter Your Expire Date"
+                                               invalid={errors.expireDate}
+                                               onChange={this.handleInputChange}
+                                               onBlur={this.handleBlur("expireDate")}/>
+                                        <FormFeedback>{errors.expireDate}</FormFeedback>
                                     </Col>
                                     <Label htmlFor="securityCode" className="col-form-label" lg={2}>SecurityNum*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" className="form-control" name="securityCode" id="securityCode" required placeholder="Enter Your Security Code"/>
+                                        <Input type="text" 
+                                               className="form-control" 
+                                               name="securityCode" 
+                                               id="securityCode" 
+                                               required 
+                                               placeholder="Enter Your Security Code"
+                                               invalid={errors.securityCode}
+                                               onChange={this.handleInputChange}
+                                               onBlur={this.handleBlur("securityCode")}/>
+                                        <FormFeedback>{errors.securityCode}</FormFeedback>
                                     </Col>
                                 </FormGroup>
                                 <FormGroup row className="mt-lg-5">
