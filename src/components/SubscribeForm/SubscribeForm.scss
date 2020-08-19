@@ -8,6 +8,12 @@ form{
     border-radius: 2rem;
 }
 
+form input, form label, form select{
+
+  margin-bottom: 1rem;
+
+}
+
 label{
     color: white;
 }
@@ -25,6 +31,10 @@ input:focus{
   color: #222A68 !important;
 /*   font-family: 'Montserrat', sans-serif; */
   transition: transform .5s ease-in-out;
+}
+
+.form-group{
+  margin-bottom: 0 !important;
 }
 
 .submitBtn:hover{
