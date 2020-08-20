@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
-import {Form, Button, FormGroup, Label, Input, Col, FormFeedback} from 'reactstrap';
+import {Button, Label, Input, Col, Row} from 'reactstrap';
 import './SubscribeForm.scss';
+import { Control, LocalForm, Errors } from 'react-redux-form';
+
+const required = val => val && val.length; //if val is not undefined and if the length is greater than zero
+const maxLength = len => val => !val || (val.length <= len); 
+const minLength = len => val => val && (val.length >= len);
+const isNumber = val => !isNaN(+val);
+const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+
+/*
+IN ORDER FOR REDUX FORMS TO WORK YOU MUST RUN "YARN ADD REDUX", "YARN ADD REACT-REDUX", AND "YARN ADD REACT-REDUX-FORM"
+ */
 
 class SubscribeForm extends Component {
 
@@ -34,104 +45,6 @@ class SubscribeForm extends Component {
 
     };
 
-    validate = (fName, lName, email, city, state, zipcode, cardNum, expireDate, securityCode) => {
-
-        const errors = {
-            fName: '',
-            lName: '',
-            email: '',
-            city: '',
-            state: '',
-            zipcode: '',
-            cardType: '',
-            cardNum: '',
-            expireDate: '',
-            securityCode: ''
-        };
-
-        if(this.state.touched.fName){
-
-            if(fName.length < 2){
-                errors.fName = 'First name must be longer than two characters.';
-            }
-
-        }
-
-        if(this.state.touched.lName){
-
-            if(lName.length < 2){
-                errors.lName = 'Last name must be longer than two characters.';
-            }
-
-        }
-
-        if(this.state.touched.email){
-
-            if(!email.includes('@')){
-                errors.email = 'You must enter a valid email address.';
-            }
-
-        }
-
-        if(this.state.touched.city){
-
-            if(city.length < 2){
-                errors.city = 'City must be longer than two characters.';
-            }
-
-        }
-
-        if(this.state.touched.state){
-
-            if(state.length < 2){
-                errors.state = 'State must be longer than two characters.';
-            }
-
-        }
-
-        const reg = /^\d+$/;
-        if(this.state.touched.zipcode){
-
-            if(!reg.test(zipcode)){
-                errors.zipcode = 'Zipcode should only contain numbers.';
-            }
-
-        }
-
-        if(this.state.touched.cardNum){
-
-            if(!reg.test(cardNum)){
-                errors.cardNum = 'Card number should only contain numbers.';
-            }
-
-        }
-
-        if(this.state.touched.expireDate){
-
-            if(!reg.test(expireDate)){
-                errors.expireDate = 'Expire date should only contain four numbers';
-            }
-
-        }
-
-        if(this.state.touched.securityCode){
-
-            if(!reg.test(securityCode)){
-                errors.securityCode = 'Security code should only contain numbers.';
-            }
-
-        }
-
-        return errors;
-
-    }
-
-    handleBlur = (field) => () => {
-        this.setState({
-            touched: {...this.state.touched, [field]: true}
-        });
-    }
-
     handleInputChange = (event) => {
         const target = event.target;
         const name = target.name;
@@ -151,7 +64,7 @@ class SubscribeForm extends Component {
 
     render(){
 
-            const errors = this.validate(this.state.fName, this.state.lName, this.state.email, this.state.city, this.state.state, this.state.zipcode, this.state.cardNum, this.state.expireDate, this.state.securityCode);
+            
 
             return(
 
@@ -162,175 +75,325 @@ class SubscribeForm extends Component {
                         </div>
                     </div>
                     <div className="row">
-                            <Form className="mx-auto mb-4 p-4 col-10" action="thankyouforsubscribing.html" onSubmit={this.handleSubmit}>
-                                <FormGroup row className="mt-lg-5">
+                            <LocalForm className="mx-auto mb-4 p-4 col-10" action="thankyouforsubscribing.html" onSubmit={this.handleSubmit}>
+                                <Row className="form-group mt-lg-5">
                                     <Label htmlFor="fName" className="col-form-label" lg={2}>First Name*</Label>
                                     <Col  lg={4}>
-                                        <Input 
-                                            type="text" 
-                                            invalid={errors.fName} 
+                                        <Control.text
+                                            model=".fName" 
                                             className="form-control" 
                                             id="fName" 
                                             name="fName" 
                                             required 
-                                            placeholder="Enter Your First Name" 
-                                            onChange={this.handleInputChange}
-                                            onBlur={this.handleBlur("fName")}/>
-                                        <FormFeedback>{errors.fName}</FormFeedback>
+                                            placeholder="Enter Your First Name"
+                                            validators={{
+                                                required,
+                                                minLength: minLength(2),
+                                                maxLength: maxLength(15)
+                                            }} />
+                                        <Errors
+                                        className="text-danger"
+                                        model=".fName"
+                                        show="touched"
+                                        component="div"
+                                        messages={{
+                                            required: 'Required',
+                                            minLength: 'Must be at least 2 characters',
+                                            maxLength: 'Must be 15 characters or less'
+                                        }}
+                                    />
                                     </Col>
                                     <Label htmlFor="lName" className="col-form-label" lg={2}>Last Name*</Label>
                                     <Col  lg={4}>
-                                        <Input type="text" 
+                                        <Control.text 
+                                               model=".lName"
                                                className="form-control" 
                                                name="lname" id="lName" 
                                                required 
                                                placeholder="Enter Your Last Name"
-                                               invalid={errors.lName}
-                                               onChange={this.handleInputChange}
-                                               onBlur={this.handleBlur("lName")}/>
-                                        <FormFeedback>{errors.lName}</FormFeedback>
+                                               validators={{
+                                                   required,
+                                                   minLength: minLength(2),
+                                                   maxLength: maxLength(15)
+                                               }}/>
+                                        <Errors
+                                                className="text-danger"
+                                                model=".lName"
+                                                show="touched"
+                                                component="div"
+                                                messages={{
+                                                    required: 'Required',
+                                                    minLength: 'Must be at least 2 characters',
+                                                    maxLength: 'Must be 15 characters or less'
+                                                }}/>
                                     </Col>
-                                </FormGroup>
-                                <FormGroup row className="mt-lg-5">
+                                </Row>
+                                <Row className="form-group mt-lg-5">
                                     <Label htmlFor="email" className="col-form-label" lg={2}>Email*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" 
+                                        <Control.text
+                                               model=".email" 
                                                className="form-control" 
                                                name="email" 
                                                id="email" 
                                                required 
                                                placeholder="Enter Your Email"
-                                               invalid={errors.email}
-                                               onChange={this.handleInputChange}
-                                               onBlur={this.handleBlur("email")}/>
-                                        <FormFeedback>{errors.email}</FormFeedback>
+                                               validators={{
+                                                   required,
+                                                   validEmail
+                                               }}/>
+                                        <Errors
+                                                className="text-danger"
+                                                model=".email"
+                                                show="touched"
+                                                component="div"
+                                                messages={{
+                                                    required: 'Required',
+                                                    validEmail: 'Invalid email address'
+                                                }}/>
                                     </Col>
                                     <Label htmlFor="address" className="col-form-label" lg={2}>Address*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" 
+                                        <Control.text
+                                               model=".address" 
                                                className="form-control" 
                                                name="address" 
                                                id="address" 
                                                required 
                                                placeholder="Enter Your Address"
-                                               invalid={errors.address}
-                                               onChange={this.handleInputChange}
-                                               onBlur={this.handleBlur("address")}/>
-                                        <FormFeedback>{errors.address}</FormFeedback>
+                                               validators={{
+                                                   required,
+                                                   minLength: minLength(5),
+                                                   maxLength: maxLength(25)
+                                               }} />
+                                        <Errors
+                                                className="text-danger"
+                                                model=".address"
+                                                show="touched"
+                                                component="div"
+                                                messages={{
+                                                    required: 'Required',
+                                                    minLength: 'Must be at least 5 characters',
+                                                    maxLength: 'Must be 25 characters or less'
+                                                }}/>
                                     </Col>
-                                </FormGroup>
-                                <FormGroup row className="mt-lg-5">
+                                </Row>
+                                <Row className="form-group mt-lg-5">
                                     <Label htmlFor="city" className="col-form-label" lg={2}>City*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" 
+                                        <Control.text
+                                               model=".city"
                                                className="form-control" 
                                                required 
                                                name="city" 
                                                id="city" 
                                                placeholder="Enter Your City"
-                                               invalid={errors.city}
-                                               onChange={this.handleInputChange}
-                                               onBlur={this.handleBlur("city")}/>
-                                        <FormFeedback>{errors.city}</FormFeedback>
+                                               validators={{
+                                                   required,
+                                                   minLength: minLength(2),
+                                                   maxLength: maxLength(15)
+                                               }}/>
+                                        <Errors
+                                                model=".city"
+                                                className="text-danger"
+                                                component="div"
+                                                show="touched"
+                                                messages={{
+                                                    required: 'Required',
+                                                    minLength: 'Must be at least 2 characters',
+                                                    maxLength: 'Must be 15 characters or less'
+                                                }}/>
                                     </Col>
                                     <Label htmlFor="state" className="col-form-label" lg={2}>State*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" 
+                                        <Control.text
+                                               model=".state" 
                                                className="form-control" 
                                                required 
                                                name="state" 
                                                id="state" 
                                                placeholder="Enter Your State"
-                                               invalid={errors.state}
-                                               onChange={this.handleInputChange}
-                                               onBlur={this.handleBlur("state")}/>
-                                        <FormFeedback>{errors.state}</FormFeedback>
+                                               validators={{
+                                                   required,
+                                                   minLength: minLength(2),
+                                                   maxLength: maxLength(15)
+                                               }}/>
+                                        <Errors
+                                                model=".state"
+                                                className="text-danger"
+                                                component="div"
+                                                show="touched"
+                                                messages={{
+                                                    required: 'Required',
+                                                    minLength: 'Must be at least 2 characters',
+                                                    maxLength: 'Must be 15 characters or less'
+                                                }}/>
                                     </Col>
-                                </FormGroup>
-                                <FormGroup row className="mt-lg-5">
+                                </Row>
+                                <Row className="form-group mt-lg-5">
                                     <Label htmlFor="zipcode" className="col-form-label" lg={2}>Zipcode*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" 
+                                        <Control.text
+                                               model=".zipcode" 
                                                className="form-control" 
                                                required 
                                                name="zipcode" 
                                                id="zipcode" 
                                                placeholder="Enter Your Zipcode"
-                                               invalid={errors.zipcode}
-                                               onChange={this.handleInputChange}
-                                               onBlur={this.handleBlur("zipcode")}/>
-                                        <FormFeedback>{errors.zipcode}</FormFeedback>
+                                               validators={{
+                                                   required,
+                                                   minLength: minLength(5),
+                                                   maxLength: maxLength(5),
+                                                   isNumber
+                                               }}/>
+                                        <Errors
+                                                model=".zipcode"
+                                                className="text-danger"
+                                                show="touched"
+                                                component="div"
+                                                messages={{
+                                                    required: 'Required',
+                                                    minLength: 'Must be at least 5 numbers',
+                                                    maxLength: 'Must be 5 numbers or less',
+                                                    isNumber: 'Must be a number'
+                                                }}/>
                                     </Col>
                                     <Label htmlFor="months" className="col-form-label" lg={2}>Months*</Label>
                                     <Col lg={4}>
-                                        <Input name="months" 
-                                               id="months" 
-                                               type="select" 
+                                        <Control.select 
+                                               model=".months"
+                                               name="months" 
+                                               id="months"  
                                                required 
-                                               className="form-control">
+                                               className="form-control"
+                                               validators={{
+                                                   required
+                                               }}>
                                             <option value="0">Select...</option>
                                             <option value="1">3 months</option>
                                             <option value="2">6 months</option>
                                             <option value="3">12 months</option>
-                                        </Input>
+                                        </Control.select>
+                                        <Errors
+                                            model=".months"
+                                            show="touched"
+                                            component="div"
+                                            className="text-danger"
+                                            messages={{
+                                                required: 'Required'
+                                            }}/>
                                     </Col>
-                                </FormGroup>
-                                <FormGroup row className="mt-lg-5">
+                                </Row>
+                                <Row className="form-group mt-lg-5">
                                     <Label htmlFor="cardType" className="col-form-label" lg={2}>Card Type*</Label>
                                     <Col lg={4}>
-                                        <Input type="select" name="cardType" id="cardType" required className="form-control">
+                                        <Control.select model=".cardType" 
+                                                        name="cardType" 
+                                                        id="cardType" 
+                                                        required 
+                                                        className="form-control"
+                                                        validators={{
+                                                            required
+                                                        }}>
                                             <option value="0">Select...</option>
                                             <option value="1">Visa</option>
                                             <option value="2">Mastercard</option>
                                             <option value="3">American Express</option>
-                                        </Input>
+                                        </Control.select>
+                                        <Errors
+                                            model=".cardType"
+                                            show="touched"
+                                            component="div"
+                                            className="text-danger"
+                                            messages={{
+                                                required: 'Required'
+                                            }}/>
                                     </Col>
                                     <Label htmlFor="cardNum" className="col-form-label" lg={2}>Card Num*</Label>
                                     <Col lg={4}>
-                                        <Input type="password" 
+                                        <Control.password
+                                               model=".cardNum" 
                                                className="form-control" 
                                                name="cardNum" 
                                                id="cardNum" 
                                                required 
                                                placeholder="Enter Your Card Number"
-                                               invalid={errors.cardNum}
-                                               onChange={this.handleInputChange}
-                                               onBlur={this.handleBlur("cardNum")}/>
-                                        <FormFeedback>{errors.cardNum}</FormFeedback>
+                                               validators={{
+                                                   required,
+                                                   minLength: minLength(16),
+                                                   maxLength: maxLength(16),
+                                                   isNumber
+                                               }}/>
+                                        <Errors
+                                            model=".cardNum"
+                                            show="touched"
+                                            component="div"
+                                            className="text-danger"
+                                            messages={{
+                                                required: 'Required',
+                                                minLength: 'Must at least 16 numbers',
+                                                maxLength: 'Must be 15 numbers or less'
+                                            }}/>
                                     </Col>
-                                </FormGroup>
-                                <FormGroup row className="mt-lg-5">
+                                </Row>
+                                <Row className="form-group mt-lg-5">
                                     <Label htmlFor="expireDate" className="col-form-label" lg={2}>Card Expires*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" 
+                                        <Control.text
+                                               model=".expireDate" 
                                                className="form-control" 
                                                name="expireDate" 
                                                id="expireDate" 
                                                required 
                                                placeholder="Enter Your Expire Date"
-                                               invalid={errors.expireDate}
-                                               onChange={this.handleInputChange}
-                                               onBlur={this.handleBlur("expireDate")}/>
-                                        <FormFeedback>{errors.expireDate}</FormFeedback>
+                                               validators={{
+                                                   required,
+                                                   minLength: minLength(4),
+                                                   maxLength: maxLength(4),
+                                                   isNumber
+                                               }}/>
+                                        <Errors
+                                            model=".expireDate"
+                                            show="touched"
+                                            component="div"
+                                            className="text-danger"
+                                            messages={{
+                                                required: 'Required',
+                                                minLength: 'Must at least 4 numbers (month/year)',
+                                                maxLength: 'Must be 4 numbers or less (month/year)'
+                                            }}/>
                                     </Col>
                                     <Label htmlFor="securityCode" className="col-form-label" lg={2}>SecurityNum*</Label>
                                     <Col lg={4}>
-                                        <Input type="text" 
+                                        <Control.password
+                                               model=".securityCode" 
                                                className="form-control" 
                                                name="securityCode" 
                                                id="securityCode" 
                                                required 
                                                placeholder="Enter Your Security Code"
-                                               invalid={errors.securityCode}
-                                               onChange={this.handleInputChange}
-                                               onBlur={this.handleBlur("securityCode")}/>
-                                        <FormFeedback>{errors.securityCode}</FormFeedback>
+                                               validators={{
+                                                   required,
+                                                   minLength: minLength(3),
+                                                   maxLength: maxLength(4),
+                                                   isNumber
+                                               }}/>
+                                        <Errors
+                                            model=".securityCode"
+                                            show="touched"
+                                            component="div"
+                                            className="text-danger"
+                                            messages={{
+                                                required: 'Required',
+                                                minLength: 'Must at least 3 numbers',
+                                                maxLength: 'Must be 4 numbers or less'
+                                            }}/>
                                     </Col>
-                                </FormGroup>
-                                <FormGroup row className="mt-lg-5">
+                                </Row>
+                                <Row className="form-group mt-lg-5">
                                         <Button className="btn mx-auto submitBtn subBtn">Submit</Button>
-                                </FormGroup>
-                            </Form>
+                                </Row>
+                            </LocalForm>
                     </div>
                 </div>
 
