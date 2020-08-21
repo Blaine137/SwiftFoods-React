@@ -76,6 +76,12 @@ class SubscribeForm extends Component {
                     </div>
                     <div className="row">
                             <LocalForm className="mx-auto mb-4 p-4 col-10" action="thankyouforsubscribing.html" onSubmit={this.handleSubmit}>
+                                <Row>
+                                    <div className="mx-auto total">
+                                        <span>Your total: </span>
+                                        <span id="totalPrice">$0.00</span>
+                                    </div>
+                                </Row>
                                 <Row className="form-group mt-lg-5">
                                     <Label htmlFor="fName" className="col-form-label" lg={2}>First Name*</Label>
                                     <Col  lg={4}>
