@@ -5,6 +5,7 @@ import About from '../About/About';
 import Shop from '../Shop/Shop';
 import Contact from '../Contact/Contact';
 import Footer from '../Footer/Footer';
+import Order from '../Order/Order';
 import {Switch, Route, Redirect} from 'react-router-dom';
 
 
@@ -47,7 +48,7 @@ class Layout extends Component{
                         </Route>
 
                         <Route path="/order">
-
+                            <Order/>
                         </Route>
 
                         <Redirect to="/"/>

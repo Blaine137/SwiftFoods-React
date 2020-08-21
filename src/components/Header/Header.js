@@ -24,7 +24,7 @@ const header = (props) => {
                     </div>
                 </div>
             </header>
-            <Navigation/>
+            <Navigation />
         </Fragment>
 
     );

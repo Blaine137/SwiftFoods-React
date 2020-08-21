@@ -17,7 +17,7 @@ const Navigation = (props) => {
 
   return (
     <div>
-      <Navbar dark expand="md" className="navbar">
+      <Navbar dark expand="md" className="navbar" sticky="top">
         <NavbarBrand href="#"><NavLink exact to="/"><img src="assets/images/swiftfoodslogodcolor.png" alt="logo" height="30" width="30"/></NavLink></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
