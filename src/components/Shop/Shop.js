@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import {
     Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    CardTitle, Button
   } from 'reactstrap';
 import SubscribeForm from '../SubscribeForm/SubscribeForm';
+import {NavLink} from 'react-router-dom';
 import './Shop.scss';
 
 
@@ -24,10 +25,18 @@ const Shop = (props) => {
                     <Card className="mx-auto shopCard">
                         <CardImg top width="100%" src="/assets/images/peppizza.jpg" alt="pepperoni pizza" />
                         <CardBody className="text-center">
-                            <CardTitle >Pizza</CardTitle>
-                            <CardText className="text-left">Italian pizza made with homemade tomato sauce, fresh american white cheese, and topped with pepperonis</CardText>
-                            <CardText >$6.99</CardText>
-                            <Button>Order Now</Button>
+                            <CardTitle >
+                                Pizza
+                            </CardTitle>
+                            <CardText className="text-left">
+                                Italian pizza made with homemade tomato sauce, fresh american white cheese, and topped with pepperonis
+                            </CardText>
+                            <CardText>
+                                $6.99
+                            </CardText>
+                            <Button className="orderBtn">
+                                Order Now
+                            </Button>
                         </CardBody>
                     </Card>
                 </div>
@@ -38,7 +47,7 @@ const Shop = (props) => {
                             <CardTitle >Salad</CardTitle>
                             <CardText className="text-left">Freshly cut lettuce topped with home grown tomatos, garden fresh carrots, and our signature ranch dressing.</CardText>
                             <CardText >$4.99</CardText>
-                            <Button>Order Now</Button>
+                            <Button className="orderBtn">Order Now</Button>
                         </CardBody>
                     </Card>
                 </div>
@@ -49,7 +58,7 @@ const Shop = (props) => {
                             <CardTitle >Burger</CardTitle>
                             <CardText className="text-left">Mouth drooling angus burger on two buns topped with fresh lettuce, tomato, ketchup and onions.</CardText>
                             <CardText >$8.99</CardText>
-                            <Button>Order Now</Button>
+                            <Button className="orderBtn">Order Now</Button>
                         </CardBody>
                     </Card>
                 </div>

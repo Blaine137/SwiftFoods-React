@@ -1,3 +1,29 @@
+p{
+    color: #222A68;
+}
+
+span{
+    color: #222A68;
+}
+
+
+
 .shopCard{
     width: 18rem;
 }
+
+.card-title{
+    color: #574AE2;
+}
+
+.orderBtn{
+    background-color: #E2ADF2 !important;
+    color: #574AE2 !important;
+    transition: transform .5s ease-in-out;
+  }
+  
+  .orderBtn:hover{
+    background-color: #574AE2 !important;
+    color: #E2ADF2 !important;
+    transform: scale(1.1);
+  }
