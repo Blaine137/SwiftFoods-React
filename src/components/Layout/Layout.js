@@ -46,6 +46,10 @@ class Layout extends Component{
                             <Contact/>
                         </Route>
 
+                        <Route path="/order">
+
+                        </Route>
+
                         <Redirect to="/"/>
                     
                     </Switch>
