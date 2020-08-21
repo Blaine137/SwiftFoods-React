@@ -15,6 +15,34 @@ IN ORDER FOR REDUX FORMS TO WORK YOU MUST RUN "YARN ADD REDUX", "YARN ADD REACT-
 
 class OrderForm extends Component {
 
+
+    changePrice = () => {
+
+        let pizza = document.getElementById('pizzaNum');
+        let salad = document.getElementById('saladNum');
+        let burger = document.getElementById('burgerNum');
+        let newPrice = 0;
+
+        if(pizza && salad && burger){
+
+            if(pizza.value > 0){
+                newPrice += pizza.value * 6.99;
+            }
+
+            if(salad.value > 0){
+                newPrice += salad.value * 4.99;
+            }
+
+            if(burger.value > 0){
+                newPrice += burger.value * 8.99;
+            }
+            
+            document.getElementById('totalPrice').innerHTML = newPrice.toFixed(2);
+
+        }
+
+    }
+
     handleInputChange = (event) => {
         const target = event.target;
         const name = target.name;
@@ -81,6 +109,7 @@ class OrderForm extends Component {
                                                id="pizzaNum"  
                                                required 
                                                className="form-control"
+                                               onChange={this.changePrice}
                                                validators={{
                                                    required
                                                }}>
@@ -113,6 +142,7 @@ class OrderForm extends Component {
                                                id="saladNum"  
                                                required 
                                                className="form-control"
+                                               onChange={this.changePrice}
                                                validators={{
                                                    required
                                                }}>
@@ -143,6 +173,7 @@ class OrderForm extends Component {
                                                id="burgerNum"  
                                                required 
                                                className="form-control"
+                                               onChange={this.changePrice}
                                                validators={{
                                                    required
                                                }}>
