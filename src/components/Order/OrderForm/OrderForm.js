@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button, Label, Input, Col, Row} from 'reactstrap';
-import './SubscribeForm.scss';
+import './OrderForm.scss';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
 const required = val => val && val.length; //if val is not undefined and if the length is greater than zero
@@ -13,9 +13,7 @@ const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 IN ORDER FOR REDUX FORMS TO WORK YOU MUST RUN "YARN ADD REDUX", "YARN ADD REACT-REDUX", AND "YARN ADD REACT-REDUX-FORM"
  */
 
-class SubscribeForm extends Component {
-
- 
+class OrderForm extends Component {
 
     handleInputChange = (event) => {
         const target = event.target;
@@ -42,17 +40,131 @@ class SubscribeForm extends Component {
 
                 <div className="container mt-4" id="subscribeForm">
                     <div className="row">
-                        <div className="col-12">
-                            <h3 className="text-center pt-4 mt-5 mb-4 align-self-center">Subscribe!</h3>
-                        </div>
-                    </div>
-                    <div className="row">
                             <LocalForm className="mx-auto mb-4 p-4 col-10" action="thankyouforsubscribing.html" onSubmit={this.handleSubmit}>
                                 <Row>
                                     <div className="mx-auto total">
                                         <span>Your total: </span>
                                         <span id="totalPrice">$0.00</span>
                                     </div>
+                                </Row>
+                                <Row className="form-group mt-lg-5">
+                                    <Label htmlFor="shipping" className="col-form-label" lg={2}>Shipping*</Label>
+                                    <Col lg={4}>
+                                        <Control.select 
+                                               model=".shipping"
+                                               name="shipping" 
+                                               id="shipping"  
+                                               required 
+                                               className="form-control"
+                                               validators={{
+                                                   required
+                                               }}>
+                                            <option value="0">Select...</option>
+                                            <option value="1">USPS</option>
+                                            <option value="2">UPS</option>
+                                            <option value="3">FEDEX</option>
+                                        </Control.select>
+                                        <Errors
+                                            model=".shipping"
+                                            show="touched"
+                                            component="div"
+                                            className="text-danger"
+                                            messages={{
+                                                required: 'Required'
+                                            }}/>
+                                    </Col>
+                                    <Label htmlfor="pizzaNum" className="col-form-label" lg={2}>Pizza*</Label>
+                                    <Col lg={4}>
+                                        <Control.select 
+                                               model=".pizzaNum"
+                                               name="pizzaNum" 
+                                               id="pizzaNum"  
+                                               required 
+                                               className="form-control"
+                                               validators={{
+                                                   required
+                                               }}>
+                                            <option value="0">Select...</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                        </Control.select>
+                                        <Errors
+                                            model=".pizzaNum"
+                                            show="touched"
+                                            component="div"
+                                            className="text-danger"
+                                            messages={{
+                                                required: 'Required'
+                                            }}/>
+                                    </Col>
+                                </Row>
+                                <Row className="form-group mt-lg-5">
+                                    <Label htmlFor="saladNum" className="col-form-label" lg={2}>Salad*</Label>
+                                    <Col lg={4}>
+                                        <Control.select 
+                                               model=".saladNum"
+                                               name="saladNum" 
+                                               id="saladNum"  
+                                               required 
+                                               className="form-control"
+                                               validators={{
+                                                   required
+                                               }}>
+                                            <option value="0">Select...</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                        </Control.select>
+                                        <Errors
+                                            model=".saladNum"
+                                            show="touched"
+                                            component="div"
+                                            className="text-danger"
+                                            messages={{
+                                                required: 'Required'
+                                            }}/>
+                                    </Col>
+                                    <Label htmlfor="burgerNum" className="col-form-label" lg={2}>Burger*</Label>
+                                    <Col lg={4}>
+                                        <Control.select 
+                                               model=".burgerNum"
+                                               name="burgrNum" 
+                                               id="burgerNum"  
+                                               required 
+                                               className="form-control"
+                                               validators={{
+                                                   required
+                                               }}>
+                                            <option value="0">Select...</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                        </Control.select>
+                                        <Errors
+                                            model=".burgerNum"
+                                            show="touched"
+                                            component="div"
+                                            className="text-danger"
+                                            messages={{
+                                                required: 'Required'
+                                            }}/>
+                                    </Col>
                                 </Row>
                                 <Row className="form-group mt-lg-5">
                                     <Label htmlFor="fName" className="col-form-label" lg={2}>First Name*</Label>
@@ -382,4 +494,4 @@ class SubscribeForm extends Component {
 
 }
 
-export default SubscribeForm;
+export default OrderForm;
