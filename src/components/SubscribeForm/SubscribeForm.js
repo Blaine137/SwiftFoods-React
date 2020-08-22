@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Label, Input, Col, Row} from 'reactstrap';
+import {Button, Label, Col, Row} from 'reactstrap';
 import './SubscribeForm.scss';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
@@ -47,7 +47,7 @@ class SubscribeForm extends Component {
                         </div>
                     </div>
                     <div className="row">
-                            <LocalForm className="mx-auto mb-4 p-4 col-10" action="/thankyou" onSubmit={this.handleSubmit}>
+                            <LocalForm className="mx-auto mb-4 p-4 col-10" action="/thankyouforsubscribing" onSubmit={this.handleSubmit}>
                                 <Row>
                                     <div className="mx-auto total">
                                         <span>Your total: </span>
