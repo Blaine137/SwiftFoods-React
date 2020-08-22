@@ -24,7 +24,7 @@ const Shop = (props) => {
                     <Card className="mx-auto mb-4 shopCard">
                         <CardImg top width="100%" src="/assets/images/peppizza.jpg" alt="pepperoni pizza" />
                         <CardBody className="text-center">
-                            <CardTitle >
+                            <CardTitle tag="h5">
                                 Pizza
                             </CardTitle>
                             <CardText className="text-left">
@@ -45,7 +45,7 @@ const Shop = (props) => {
                     <Card className="mx-auto shopCard mb-4">
                         <CardImg top width="100%" src="/assets/images/salad.jpg" alt="salad" />
                         <CardBody className="text-center">
-                            <CardTitle >Salad</CardTitle>
+                            <CardTitle tag="h5">Salad</CardTitle>
                             <CardText className="text-left">Freshly cut lettuce topped with home grown tomatos, garden fresh carrots, and our signature ranch dressing.</CardText>
                             <CardText >$4.99</CardText>
                             <Link to="/order">
@@ -60,7 +60,7 @@ const Shop = (props) => {
                     <Card className="mx-auto shopCard mb-4">
                         <CardImg top width="100%" src="/assets/images/burger.jpg" alt="burger" />
                         <CardBody className="text-center">
-                            <CardTitle >Burger</CardTitle>
+                            <CardTitle tag="h5">Burger</CardTitle>
                             <CardText className="text-left">Mouth drooling angus burger on two buns topped with fresh lettuce, tomato, ketchup and onions.</CardText>
                             <CardText >$8.99</CardText>
                             <Link to="/order">
