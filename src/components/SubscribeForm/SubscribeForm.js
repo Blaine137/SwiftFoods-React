@@ -28,8 +28,8 @@ class SubscribeForm extends Component {
     }
 
     handleSubmit = (event) => {
-        console.log('Current state is: ' + JSON.stringify(this.state));
-        alert('Current state is: ' + JSON.stringify(this.state));
+        
+        alert('Thank you for submitting the form');
         event.preventDefault();
     }
 
@@ -40,14 +40,14 @@ class SubscribeForm extends Component {
 
             return(
 
-                <div className="container mt-4" id="subscribeForm">
+                <div className="container" id="subscribeForm">
                     <div className="row">
                         <div className="col-12">
-                            <h3 className="text-center pt-4 mt-5 mb-4 align-self-center">Subscribe!</h3>
+                            <h3 className="text-center mt-5 mb-5 align-self-center">Subscribe!</h3>
                         </div>
                     </div>
                     <div className="row">
-                            <LocalForm className="mx-auto mb-4 p-4 col-10" action="thankyouforsubscribing.html" onSubmit={this.handleSubmit}>
+                            <LocalForm className="mx-auto mb-4 p-4 col-10" action="/thankyou" onSubmit={this.handleSubmit}>
                                 <Row>
                                     <div className="mx-auto total">
                                         <span>Your total: </span>

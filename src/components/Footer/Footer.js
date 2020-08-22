@@ -2,7 +2,7 @@ import React from 'react';
 import './Footer.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 
 const footer = (props) => {
 
@@ -30,7 +30,7 @@ const footer = (props) => {
 
                         </div>
                         <div className="col-6 col-sm-5 text-center">
-                            <a className="btn btn-large btn-primary mt-4 subscribeBtn" data-toggle="#" data-target="#" href="#subscribeForm">Subscribe</a>
+                            <Link className="btn btn-large btn-primary mt-4 subscribeBtn" data-toggle="#" data-target="#" to="/subscribe">Subscribe</Link>
                         </div>
                         <div className="col-sm-4 text-center contactInfo">
                             <a  role="button" href="tel:+12065551234" className="btn btn-link"><FontAwesomeIcon icon={faPhone}/> 1-770-678-9900</a><br/>

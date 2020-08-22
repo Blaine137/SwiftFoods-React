@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import {
   Card, CardImg, CardBody
 } from 'reactstrap';
-import SubscribeForm from '../SubscribeForm/SubscribeForm';
 import './Home.scss';
 
 const home = (props) => {
@@ -54,7 +53,7 @@ const home = (props) => {
                 </div>
             </div>
         </div>
-        <SubscribeForm/>
+        
         
       </Fragment>
 

@@ -3,7 +3,6 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, Button
   } from 'reactstrap';
-import SubscribeForm from '../SubscribeForm/SubscribeForm';
 import {Link} from 'react-router-dom';
 import './Shop.scss';
 
@@ -73,7 +72,7 @@ const Shop = (props) => {
                     </Card>
                 </div>
             </div>
-            <SubscribeForm/>
+           
         </Fragment>
 
     );

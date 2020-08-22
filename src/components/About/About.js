@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import SubscribeForm from '../SubscribeForm/SubscribeForm';
 import './About.scss';
 
 const About = (props) => {
@@ -38,7 +37,7 @@ const About = (props) => {
                             </div>
                         </div>
                     </div>
-                    <SubscribeForm/>
+                    
             </Fragment>
         );
 };

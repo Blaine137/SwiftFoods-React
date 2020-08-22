@@ -21,6 +21,10 @@ span{
     color: #574AE2 !important;
     transition: transform .5s ease-in-out;
   }
+
+.orderBtn:focus{
+    box-shadow: none !important;
+}
   
   .orderBtn:hover{
     background-color: #574AE2 !important;

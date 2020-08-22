@@ -4,6 +4,7 @@ import Home from '../Home/Home';
 import About from '../About/About';
 import Shop from '../Shop/Shop';
 import Contact from '../Contact/Contact';
+import SubscribeForm from '../SubscribeForm/SubscribeForm';
 import Footer from '../Footer/Footer';
 import Order from '../Order/Order';
 import {Switch, Route, Redirect} from 'react-router-dom';
@@ -49,6 +50,10 @@ class Layout extends Component{
 
                         <Route path="/order">
                             <Order/>
+                        </Route>
+
+                        <Route path="/subscribe">
+                            <SubscribeForm/>
                         </Route>
 
                         <Redirect to="/"/>
