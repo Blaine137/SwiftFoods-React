@@ -2,7 +2,7 @@
   "name": "swiftfoods",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://Blaine137.github.io/SwiftFoods-React"
+  "homepage": "http://Blaine137.github.io/SwiftFoods-React",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
