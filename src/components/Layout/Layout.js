@@ -56,6 +56,10 @@ class Layout extends Component{
                             <SubscribeForm/>
                         </Route>
 
+                        <Route  path="/SwiftFood-React">
+                            <Home/>
+                        </Route>
+
                         <Redirect to="/"/>
                     
                     </Switch>

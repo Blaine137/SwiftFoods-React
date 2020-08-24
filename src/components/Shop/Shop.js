@@ -22,7 +22,7 @@ const Shop = (props) => {
             <div className="row">
                 <div className="col-12 col-md-6 col-lg-4">
                     <Card className="mx-auto mb-4 shopCard">
-                        <CardImg top width="100%" src="/assets/images/peppizza.jpg" alt="pepperoni pizza" />
+                        <CardImg top width="100%" src={process.env.PUBLIC_URL + '/assets/images/peppizza.jpg'} alt="pepperoni pizza" />
                         <CardBody className="text-center">
                             <CardTitle tag="h5">
                                 Pizza
@@ -43,7 +43,7 @@ const Shop = (props) => {
                 </div>
                 <div className="col-12 col-md-6 col-lg-4">
                     <Card className="mx-auto shopCard mb-4">
-                        <CardImg top width="100%" src="/assets/images/salad.jpg" alt="salad" />
+                        <CardImg top width="100%" src={process.env.PUBLIC_URL + '/assets/images/salad.jpg'} alt="salad" />
                         <CardBody className="text-center">
                             <CardTitle tag="h5">Salad</CardTitle>
                             <CardText className="text-left">Freshly cut lettuce topped with home grown tomatos, garden fresh carrots, and our signature ranch dressing.</CardText>
@@ -58,7 +58,7 @@ const Shop = (props) => {
                 </div>
                 <div className="col-12 col-md-6-offset-2 col-lg-4">
                     <Card className="mx-auto shopCard mb-4">
-                        <CardImg top width="100%" src="/assets/images/burger.jpg" alt="burger" />
+                        <CardImg top width="100%" src={process.env.PUBLIC_URL + '/assets/images/burger.jpg'} alt="burger" />
                         <CardBody className="text-center">
                             <CardTitle tag="h5">Burger</CardTitle>
                             <CardText className="text-left">Mouth drooling angus burger on two buns topped with fresh lettuce, tomato, ketchup and onions.</CardText>
