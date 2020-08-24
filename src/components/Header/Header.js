@@ -13,7 +13,7 @@ const header = (props) => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-4 col-sm-3 col-md-2 align-self-center">
-                            <Link to="/"><img src="assets/images/swiftfoodslogodcolor.png" alt="" className="image-fluid img-thumbnail headerLogo scale-in-center"/></Link>
+                            <Link to="/"><img src={process.env.PUBLIC_URL + '/assets/images/swiftfoodslogodcolor.png'} alt="" className="image-fluid img-thumbnail headerLogo scale-in-center"/></Link>
                         </div>
                         <div className="col">
                             <h1 className="slide-in-left">Swift Foods</h1>
