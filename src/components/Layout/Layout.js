@@ -7,7 +7,7 @@ import Contact from '../Contact/Contact';
 import SubscribeForm from '../SubscribeForm/SubscribeForm';
 import Footer from '../Footer/Footer';
 import Order from '../Order/Order';
-import {HashRouter, Route, Redirect} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
 
 
@@ -30,7 +30,7 @@ class Layout extends Component{
                 
             
                 
-                    <HashRouter>
+                    <Switch>
                     
                         <Route exact path="/">
                             <Home/>
@@ -62,7 +62,7 @@ class Layout extends Component{
 
                         <Redirect to="/"/>
                     
-                    </HashRouter>
+                    </Switch>
                 
               
 
