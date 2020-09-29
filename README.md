@@ -1,3 +1,8 @@
+LINK TO SITE: https://blaine137.github.io/SwiftFoods-React/
+
+-------ALL NEW CHANGES ARE PUSHED TO THE GH-PAGES BRANCH---------
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
