@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3434fbf5b50ee03b5dec953cb6a6542d",
+    "revision": "80a4fae04854d211baeecba14ad5bc28",
     "url": "/SwiftFoods-React/index.html"
   },
   {
