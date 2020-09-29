@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/SwiftFoods-React/static/css/main.15e9193d.chunk.css",
-    "main.js": "/SwiftFoods-React/static/js/main.59703524.chunk.js",
-    "main.js.map": "/SwiftFoods-React/static/js/main.59703524.chunk.js.map",
+    "main.js": "/SwiftFoods-React/static/js/main.32619021.chunk.js",
+    "main.js.map": "/SwiftFoods-React/static/js/main.32619021.chunk.js.map",
     "runtime-main.js": "/SwiftFoods-React/static/js/runtime-main.167650ba.js",
     "runtime-main.js.map": "/SwiftFoods-React/static/js/runtime-main.167650ba.js.map",
     "static/css/2.10e5fc04.chunk.css": "/SwiftFoods-React/static/css/2.10e5fc04.chunk.css",
     "static/js/2.7add491b.chunk.js": "/SwiftFoods-React/static/js/2.7add491b.chunk.js",
     "static/js/2.7add491b.chunk.js.map": "/SwiftFoods-React/static/js/2.7add491b.chunk.js.map",
     "index.html": "/SwiftFoods-React/index.html",
-    "precache-manifest.75dda9443c413cb94ca8aae948f1138a.js": "/SwiftFoods-React/precache-manifest.75dda9443c413cb94ca8aae948f1138a.js",
+    "precache-manifest.9ea1a90e1eeed20795993237901fb7f6.js": "/SwiftFoods-React/precache-manifest.9ea1a90e1eeed20795993237901fb7f6.js",
     "service-worker.js": "/SwiftFoods-React/service-worker.js",
     "static/css/2.10e5fc04.chunk.css.map": "/SwiftFoods-React/static/css/2.10e5fc04.chunk.css.map",
     "static/css/main.15e9193d.chunk.css.map": "/SwiftFoods-React/static/css/main.15e9193d.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.10e5fc04.chunk.css",
     "static/js/2.7add491b.chunk.js",
     "static/css/main.15e9193d.chunk.css",
-    "static/js/main.59703524.chunk.js"
+    "static/js/main.32619021.chunk.js"
   ]
 }
