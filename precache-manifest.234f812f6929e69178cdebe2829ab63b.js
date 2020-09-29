@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e29013b36c1ff4e9edf20902cbe1caf0",
+    "revision": "73e4d9477d84ebf33c4a3d3c8610a44d",
     "url": "/SwiftFoods-React/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SwiftFoods-React/static/css/2.10e5fc04.chunk.css"
   },
   {
-    "revision": "bd45e2d3fa87866111e0",
-    "url": "/SwiftFoods-React/static/css/main.15e9193d.chunk.css"
+    "revision": "8675ed59aca8aa538db3",
+    "url": "/SwiftFoods-React/static/css/main.e4d37bbd.chunk.css"
   },
   {
     "revision": "4b2cbea1277f92e378ee",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SwiftFoods-React/static/js/2.7add491b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bd45e2d3fa87866111e0",
-    "url": "/SwiftFoods-React/static/js/main.32619021.chunk.js"
+    "revision": "8675ed59aca8aa538db3",
+    "url": "/SwiftFoods-React/static/js/main.5000820d.chunk.js"
   },
   {
     "revision": "8ed7b97b88568be39698",
