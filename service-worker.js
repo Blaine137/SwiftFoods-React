@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/SwiftFoods-React/precache-manifest.53a5a882c79be8934459e55e1ca82207.js"
+  "/SwiftFoods-React/precache-manifest.9fa3d34e4dd331eb815b96982921cdd4.js"
 );
 
 self.addEventListener('message', (event) => {
