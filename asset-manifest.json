@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/SwiftFoods-React/static/css/main.c8c973c5.chunk.css",
+    "main.css": "/SwiftFoods-React/static/css/main.6bdffb54.chunk.css",
     "main.js": "/SwiftFoods-React/static/js/main.32619021.chunk.js",
     "main.js.map": "/SwiftFoods-React/static/js/main.32619021.chunk.js.map",
     "runtime-main.js": "/SwiftFoods-React/static/js/runtime-main.167650ba.js",
@@ -9,10 +9,10 @@
     "static/js/2.7add491b.chunk.js": "/SwiftFoods-React/static/js/2.7add491b.chunk.js",
     "static/js/2.7add491b.chunk.js.map": "/SwiftFoods-React/static/js/2.7add491b.chunk.js.map",
     "index.html": "/SwiftFoods-React/index.html",
-    "precache-manifest.04d6b1e4709dc53cc24cda1dd5789028.js": "/SwiftFoods-React/precache-manifest.04d6b1e4709dc53cc24cda1dd5789028.js",
+    "precache-manifest.b2561e4d809c9c6646baab11d221603f.js": "/SwiftFoods-React/precache-manifest.b2561e4d809c9c6646baab11d221603f.js",
     "service-worker.js": "/SwiftFoods-React/service-worker.js",
     "static/css/2.10e5fc04.chunk.css.map": "/SwiftFoods-React/static/css/2.10e5fc04.chunk.css.map",
-    "static/css/main.c8c973c5.chunk.css.map": "/SwiftFoods-React/static/css/main.c8c973c5.chunk.css.map",
+    "static/css/main.6bdffb54.chunk.css.map": "/SwiftFoods-React/static/css/main.6bdffb54.chunk.css.map",
     "static/js/2.7add491b.chunk.js.LICENSE.txt": "/SwiftFoods-React/static/js/2.7add491b.chunk.js.LICENSE.txt",
     "static/media/index.css": "/SwiftFoods-React/static/media/yellowtail-latin-400.65e8656b.woff"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.167650ba.js",
     "static/css/2.10e5fc04.chunk.css",
     "static/js/2.7add491b.chunk.js",
-    "static/css/main.c8c973c5.chunk.css",
+    "static/css/main.6bdffb54.chunk.css",
     "static/js/main.32619021.chunk.js"
   ]
 }
